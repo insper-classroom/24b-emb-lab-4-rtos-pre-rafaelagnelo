@@ -106,6 +106,7 @@ int main() {
     printf("Start RTOS \n");
 
     xQueueButId = xQueueCreate(32, sizeof(int));
+    xQueueButId1 = xQueueCreate(32, sizeof(int));
 
     xTaskCreate(led_1_task, "LED_Task 1", 256, NULL, 1, NULL);
     xTaskCreate(btn_1_task, "BTN_Task 1", 256, NULL, 1, NULL);
