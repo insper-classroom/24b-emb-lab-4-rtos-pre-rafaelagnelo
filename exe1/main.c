@@ -14,11 +14,19 @@ void led_1_task(void *p) {
   gpio_init(LED_PIN_R);
   gpio_set_dir(LED_PIN_R, GPIO_OUT);
 
+  gpio_init(LED_PIN_G);
+  gpio_set_dir(LED_PIN_G, GPIO_OUT);
+
   int delay = 250;
   while (true) {
     gpio_put(LED_PIN_R, 1);
     vTaskDelay(pdMS_TO_TICKS(delay));
     gpio_put(LED_PIN_R, 0);
+    vTaskDelay(pdMS_TO_TICKS(delay));
+
+    gpio_put(LED_PIN_G, 1);
+    vTaskDelay(pdMS_TO_TICKS(delay));
+    gpio_put(LED_PIN_G, 0);
     vTaskDelay(pdMS_TO_TICKS(delay));
   }
 }
