@@ -18,8 +18,10 @@ QueueHandle_t xQueueButId1;
 SemaphoreHandle_t xSemaphore_g;
 
 void btn_callback(uint gpio, uint32_t events) {
-    if (events == 0x4) { // fall edge
+    if (gpio == BTN_PIN_R) { // fall edge
         xSemaphoreGiveFromISR(xSemaphore_r, 0);
+    }
+    else if(gpio == BTN_PIN_G){
         xSemaphoreGiveFromISR(xSemaphore_g, 0);
     }
 }
